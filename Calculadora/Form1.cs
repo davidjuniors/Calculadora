@@ -124,6 +124,17 @@ namespace Calculadora
             bResult = false;
         }
 
+        private void btnApagar_Click(object sender, EventArgs e)
+        {
+            if (txtResult.TextLength > 1)
+            {
+                txtResult.Text = txtResult.Text.Substring(0, txtResult.Text.Length - 1);
+                return;
+            }
+ 
+            txtResult.Text = "";
+        }
+
         private void btnMais_Click(object sender, EventArgs e)
         {
             cOperacao = "soma";
@@ -159,9 +170,16 @@ namespace Calculadora
         private void btnVirgula_Click(object sender, EventArgs e)
         {
             if (!bResult)
-                txtResult.Text += '.';
+            {
+                if (!txtResult.Text.Contains("."))
+                {
+                    txtResult.Text += ".";
+                }
+            }
             else
+            {
                 txtResult.Text = ".";
+            }
 
             bResult = false;
         }
@@ -221,7 +239,5 @@ namespace Calculadora
             lbMemorial.Text = string.Concat(lbMemorial.Text, " ", dValorB);
             bResult = true;
         }
-
-        
     }
 }

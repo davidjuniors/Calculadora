@@ -231,6 +231,7 @@ namespace Calculadora
             this.btnApagar.TabIndex = 19;
             this.btnApagar.Text = "<";
             this.btnApagar.UseVisualStyleBackColor = true;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
             // btnZerarTela
             // 
